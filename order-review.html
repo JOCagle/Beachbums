@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Order - Review &amp; Pay | Beach Bums</title>
+<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="nav">
+<div class="container nav-inner">
+<a class="brand" href="index.html">
+<img alt="Beach Bums logo" src="assets/logo.webp"/>
+<div>
+<div style="font-size:1.05rem">Beach Bums</div>
+<div class="muted" style="font-size:.86rem">Isle of Palms Rentals</div>
+</div>
+</a>
+<nav class="nav-links">
+<a href="pricing.html">Pricing</a>
+<a href="about.html">About Us</a>
+<a href="blog.html">Blog</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+</nav>
+<div class="nav-cta">
+<a class="btn small ghost" href="tel:8437540102">Same Day: 843-754-0102</a>
+<a class="btn ghost" href="index.html">Home</a>
+</div>
+</div>
+</header>
+
+<main class="order-wrap container">
+<h1 style="margin:10px 0 6px;">3) Review &amp; Pay</h1>
+<p class="muted" style="margin:0 0 12px;">Confirm your address/access and gear — then continue to secure checkout.</p>
+<div class="split">
+<div class="card">
+<div class="error" id="err"></div>
+<h3 style="margin:0 0 10px;">Your details</h3>
+<div class="card soft" id="summary" style="padding:14px;"></div>
+<div class="hr"></div>
+<h3 style="margin:0 0 8px;">Delivery note</h3>
+<p class="muted" style="margin:0 0 10px;">
+        We’ll copy this note so you can paste it into the checkout “Special instructions” (if needed).
+      </p>
+<textarea class="input" id="deliveryNote" placeholder="Your address + beach access will appear here." rows="4"></textarea>
+<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+<button class="btn ghost" id="copyNoteBtn" type="button">Copy note</button>
+<span class="muted" id="copyStatus" style="align-self:center;"></span>
+</div>
+<div class="hr"></div>
+<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+<button class="btn ghost" id="backBtn" type="button">← Back</button>
+<button class="btn primary" id="nextBtn" type="button">Continue to payment →</button>
+</div>
+</div>
+<aside class="card">
+<h3 style="margin-top:0;">Your cart</h3>
+<p class="muted" style="margin-top:6px;">
+        This cart is powered by Booqable. Prices, availability, and payment are handled there.
+      </p>
+<div class="hr"></div>
+<div class="booqable-cart"></div>
+<div class="notice" style="margin-top:12px;">
+<b>Heads up:</b> Checkout may show a sign-in screen. Customers can tap <b>Continue as guest</b>.
+      </div>
+</aside>
+</div>
+</main>
+
+<!-- Hidden Booqable cart used to create a real checkout session -->
+<div class="booqable-cart" style="display:none"></div>
+<footer class="footer">
+<div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+<div>© <span id="y"></span> Beach Bums</div>
+<div style="display:flex;gap:14px;flex-wrap:wrap;">
+<a href="privacy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+</footer>
+<script src="js/app.js"></script>
+<script src="js/booqable-config.js"></script>
+<script src="https://ec47cdcc-911a-4e40-be7e-24fd68ffbd72.assets.booqable.com/v2/booqable.js"></script>
+<script src="js/booqable-lock.js"></script>
+<script src="js/order-state.js"></script>
+<script src="js/order-review.js"></script>
+<script src="js/order-checkout-trigger.js"></script>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
