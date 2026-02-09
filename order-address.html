@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order - Address | Beach Bums</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.webp" alt="Beach Bums logo">
+      <div>
+        <div style="font-size:1.05rem">Beach Bums</div>
+        <div class="muted" style="font-size:.86rem">Isle of Palms Rentals</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn small ghost" href="tel:8437540102">Same Day: 843-754-0102</a>
+      <a class="btn ghost" href="index.html">Home</a>
+    </div>
+  </div>
+</header>
+
+
+<main class="order-wrap container">
+  <h1 style="margin:10px 0 6px;">1) Choose your beach access + address</h1>
+  <p class="muted" style="margin:0 0 12px;">
+    Enter the beach property address. We’ll automatically pick the closest access point and show it on the map.
+    You can change it by clicking a marker or selecting a popular/suggested option.
+  </p>
+
+  <div class="split">
+    <div class="card">
+      <div id="err" class="error"></div>
+
+      <div class="field">
+        <label>Beach property address</label>
+        <textarea id="address" placeholder="Street address, Isle of Palms, SC 29451"></textarea>
+        <div class="help">Tip: Paste the full address. The map + closest access point will load automatically.</div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px;">
+        <button class="btn" id="backBtn">← Back</button>
+        <button class="btn primary" id="nextBtn">Next: Pick Gear →</button>
+      </div>
+    </div>
+
+    <aside class="card">
+      <h3 style="margin-top:0">Quick note</h3>
+      <div class="notice">
+        <b>Note:</b> All umbrellas include a table.
+        <div class="legend">
+          <div class="item"><span class="dot yellow"></span><span>Unselected access points</span></div>
+          <div class="item"><span class="dot red"></span><span>Your current address</span></div>
+          <div class="item"><span class="dot blue"></span><span>Selected access point</span></div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <p class="muted">
+        The address helps us recommend the closest access point so you can get on the sand fast.
+      </p>
+    </aside>
+  </div>
+
+  <div id="resultsWrap" style="display:none; margin-top:14px;">
+    <h3 style="margin:0 0 10px;">3D map (click an access point)</h3>
+    <div class="map-wrap"><div id="accessMap"></div></div>
+    <div class="map-legend">Tip: Click a marker to select that access point.</div>
+
+    <div class="hr"></div>
+
+    <div id="selectedBox" class="notice" style="margin-bottom:12px;"></div>
+
+    <div class="help" style="margin:6px 0 10px;">Popular options</div>
+    <div id="popularList" class="pay-grid" style="grid-template-columns:1fr;"></div>
+
+    <div class="hr"></div>
+
+    <div class="help" style="margin:6px 0 10px;">Suggested (based on your address)</div>
+    <div id="suggestions" class="pay-grid" style="grid-template-columns:1fr;"></div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+    <div>© <span id="y"></span> Beach Bums</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+<script src="js/order-state.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+<script src="js/order-address.js"></script>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
