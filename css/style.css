@@ -318,6 +318,7 @@ button,input,select,textarea{font-family:inherit}
 }
 
 .hero-content{position:relative; z-index:2;}
+<<<<<<< HEAD
 
 
 /* ------------------------------------------------------------
@@ -380,3 +381,5 @@ button,input,select,textarea{font-family:inherit}
   .nav-links{font-size:.9rem;}
 }
 
+=======
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e

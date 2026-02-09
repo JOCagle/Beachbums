@@ -7,7 +7,11 @@
 <title>Order - Gear | Beach Bums</title>
 <link href="css/style.css" rel="stylesheet"/>
 </head>
+<<<<<<< HEAD
 <body data-allow-checkout="true">
+=======
+<body>
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e
 <header class="nav">
 <div class="container nav-inner">
 <a class="brand" href="index.html">
@@ -32,7 +36,11 @@
 </header>
 <main class="order-wrap container">
 <h1 style="margin:10px 0 6px;">2) Pick your gear</h1>
+<<<<<<< HEAD
     <p class="muted" style="margin:0 0 12px;">Keep it simple: address/access → gear → checkout.</p>
+=======
+<p class="muted" style="margin:0 0 12px;">Keep it simple: address/access → gear → review → pay.</p>
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e
 <div class="split">
 <div class="card">
 <div class="error" id="err"></div>
@@ -70,6 +78,7 @@
 <div class="booqable-product-list" data-show-search="false"></div>
 <div class="hr"></div>
 <div class="card soft" style="padding:14px; margin:12px 0;">
+<<<<<<< HEAD
   <div style="font-weight:700; margin-bottom:6px;">Your cart</div>
   <div class="muted" style="margin-bottom:10px;">Adjust quantities here. When ready, tap <b>Checkout</b>.</div>
   <div class="booqable-cart"></div>
@@ -79,6 +88,18 @@
 
 <div class="notice" style="margin-top:12px;">
   <b>Bundle:</b> 2 chairs + 1 umbrella (table included) = <b>$48/day</b> (auto-applied).
+=======
+<div style="font-weight:700; margin-bottom:6px;">Your cart</div>
+<div class="muted" style="margin-bottom:10px;">Adjust quantities here. When ready, click <b>Next</b>.</div>
+<div class="booqable-cart"></div>
+</div>
+<div class="hr"></div>
+<div class="notice" style="margin-top:12px;">
+<b>Bundle:</b> 2 chairs + 1 umbrella (table included) = <b>$48/day</b> (auto-applied).
+      </div>
+<div style="display:flex;justify-content:flex-end;margin-top:14px;">
+<button class="btn primary" id="nextBtn">Next: Review →</button>
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e
 </div>
 </div>
 <aside class="card">
@@ -109,8 +130,17 @@
 
 <script src="js/app.js"></script>
 <script src="js/order-state.js"></script>
+<<<<<<< HEAD
 <!-- No custom "Next" button on this step.
      Customers should use the Booqable cart sidebar's Checkout button to proceed. -->
+=======
+<script>
+  // Step 2 → Step 3 (Review)
+  document.getElementById("nextBtn").addEventListener("click", ()=>{
+    window.location.href = "order-review.html";
+  });
+</script>
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 
 </body></html>

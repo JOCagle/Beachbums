@@ -1,6 +1,7 @@
 const BB_ALLOW_CHECKOUT = () =>
   document.body && document.body.dataset && document.body.dataset.allowCheckout === "true";
 
+<<<<<<< HEAD
 const BB_CHECKOUT_HOST = (window.BOOQABLE_CONFIG && window.BOOQABLE_CONFIG.checkoutHost) || "checkout.beachbumsiop.com";
 
 function bbRewriteToCheckoutHost(href){
@@ -24,6 +25,8 @@ function bbRewriteToCheckoutHost(href){
   }
 }
 
+=======
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e
 (function () {
   const LOCK_ATTR = "data-bb-locked";
 
@@ -65,12 +68,15 @@ function bbRewriteToCheckoutHost(href){
         txt === "view cart" || href.includes("/cart");
 
       if (looksLikeCheckout || looksLikeViewCart) {
+<<<<<<< HEAD
         // Rewrite cart/checkout links to the dedicated checkout subdomain
         const rawHref = el.getAttribute("href");
         const fixedHref = bbRewriteToCheckoutHost(rawHref);
         if (rawHref && fixedHref && rawHref !== fixedHref) {
           el.setAttribute("href", fixedHref);
         }
+=======
+>>>>>>> ce33efc0ed55bfb3c0bca74f5483f881f5094f5e
         if (unlocked) unlockElement(el);
         else lockElement(el);
       }
