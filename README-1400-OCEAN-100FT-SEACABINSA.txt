@@ -1,0 +1,1 @@
+Hard rule added: anything at/near 1400 Ocean Blvd within ~100 feet routes to Sea Cabins A and does not trigger oceanfront delivery modal.

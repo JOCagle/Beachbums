@@ -1,0 +1,1 @@
+Clean nav fix applied. Desktop links work normally. Mobile hamburger opens floating menu. Closed menu cannot block page buttons.

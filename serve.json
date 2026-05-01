@@ -1,0 +1,61 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/order",
+      "destination": "/order.html"
+    },
+    {
+      "source": "/order-stay",
+      "destination": "/order-stay.html"
+    },
+    {
+      "source": "/order-address",
+      "destination": "/order-address.html"
+    },
+    {
+      "source": "/order-condo",
+      "destination": "/order-condo.html"
+    },
+    {
+      "source": "/order-contact",
+      "destination": "/order-contact.html"
+    },
+    {
+      "source": "/order-gear",
+      "destination": "/order-gear.html"
+    },
+    {
+      "source": "/order-dates",
+      "destination": "/order-dates.html"
+    },
+    {
+      "source": "/order-review",
+      "destination": "/order-review.html"
+    },
+    {
+      "source": "/order-confirm",
+      "destination": "/order-confirm.html"
+    }
+  ]
+}

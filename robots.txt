@@ -1,0 +1,14 @@
+
+User-agent: *
+Allow: /
+Disallow: /order-stay.html
+Disallow: /order-gear.html
+Disallow: /order-dates.html
+Disallow: /order-address.html
+Disallow: /order-condo.html
+Disallow: /order-contact.html
+Disallow: /order-confirm.html
+Disallow: /order-review.html
+Disallow: /order.html
+
+Sitemap: https://beachbumsiop.com/sitemap.xml

@@ -1,0 +1,11 @@
+Beachbums local testing fix
+
+I updated the site links so local testing works in Live Server and by opening index.html directly.
+
+Changed clean URL links like:
+  /pricing, pricing, /blog, /order-stay
+
+to real file links like:
+  pricing.html, blog.html, order-stay.html
+
+Use VS Code > right-click index.html > Open with Live Server.

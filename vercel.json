@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/products/(.*)", "destination": "/pricing", "permanent": true },
+    { "source": "/collections/(.*)", "destination": "/pricing", "permanent": true },
+    { "source": "/collections", "destination": "/pricing", "permanent": true },
+    { "source": "/pages/about-us", "destination": "/about", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/pages/blog", "destination": "/blog", "permanent": true }
+  ]
+}

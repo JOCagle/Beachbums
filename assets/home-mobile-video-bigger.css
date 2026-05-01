@@ -1,0 +1,89 @@
+/* Home page mobile hero video upgrade only. Does not touch order/date picker pages. */
+@media (max-width: 740px) {
+  body .nav + .hero,
+  body header.nav + .hero {
+    padding-top: 96px !important;
+  }
+
+  body .hero {
+    min-height: 92svh !important;
+    min-height: 92vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  body .hero-video.vimeo-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+    z-index: 0 !important;
+  }
+
+  /* Vimeo iframes do not support object-fit, so this oversizes/zooms it to fill phone screens better. */
+  body .hero-video.vimeo-bg iframe {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 230vw !important;
+    height: 130vw !important;
+    min-width: 180vh !important;
+    min-height: 100vh !important;
+    transform: translate(-50%, -50%) scale(1.16) !important;
+    transform-origin: center center !important;
+    pointer-events: none !important;
+  }
+
+  body .hero::after {
+    background:
+      radial-gradient(circle at 50% 18%, rgba(255, 211, 122, .18), transparent 44%),
+      linear-gradient(to bottom, rgba(5, 18, 28, .32), rgba(5, 18, 28, .70)) !important;
+  }
+
+  body .hero-content {
+    width: min(92%, 430px) !important;
+    padding: 34px 0 28px !important;
+    margin: 0 auto !important;
+  }
+
+  body .hero-logo {
+    width: 118px !important;
+    margin-bottom: 12px !important;
+  }
+
+  body .hero-title {
+    font-size: clamp(2.15rem, 10vw, 3.15rem) !important;
+    line-height: .98 !important;
+    margin-bottom: 12px !important;
+  }
+
+  body .hero-sub {
+    font-size: 1.02rem !important;
+    line-height: 1.45 !important;
+  }
+
+  body .hero-actions {
+    gap: 10px !important;
+  }
+
+  body .hero-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body .hero-video.vimeo-bg iframe {
+    width: 260vw !important;
+    height: 146.25vw !important;
+    min-width: 190vh !important;
+    min-height: 107vh !important;
+    transform: translate(-50%, -50%) scale(1.22) !important;
+  }
+
+  body .hero {
+    min-height: 94svh !important;
+    min-height: 94vh !important;
+  }
+}

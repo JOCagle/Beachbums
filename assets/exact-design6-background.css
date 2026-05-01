@@ -1,0 +1,1363 @@
+
+/* =========================================================
+   EXACT DESIGN 6 - COASTAL INSPIRED BACKGROUND
+   Replaces old animated wave background completely.
+   ========================================================= */
+
+html, body {
+  min-height: 100%;
+  background: #062033 !important;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Remove/neutralize previous background effect layers */
+body::before,
+body::after,
+.bg-animation,
+.background-animation,
+.animated-background,
+.wave-background,
+.wave-lines,
+.wave-lines-bg,
+.ocean-bg,
+.ocean-background,
+.motion-background,
+.luxury-coastal-bg,
+.coastal-bg,
+#animatedBackground,
+#animated-bg,
+#waveCanvas,
+#bgCanvasOld,
+#luxuryCoastalBg {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Exact attached HTML canvas background */
+#bgCanvas {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  background: linear-gradient(135deg,#061724,#0c5069,#0a8792) !important;
+}
+
+/* Push all real site content above canvas */
+header,
+nav,
+main,
+section,
+footer,
+.site-header,
+.navbar,
+.nav-wrap,
+.nav-wrapper,
+.main-header,
+.header,
+.hero,
+.page,
+.content,
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header/nav must be on top */
+header,
+.site-header,
+.navbar,
+.nav-wrap,
+.nav-wrapper,
+.main-header,
+.header {
+  z-index: 100 !important;
+  overflow: visible !important;
+}
+
+/* Fix the header sitting/clipping against the top like the screenshot */
+.site-header,
+.navbar,
+header {
+  margin-top: 14px;
+}
+
+/* Remove old section background blocks where possible so Design 6 shows through */
+.hero,
+.home-hero,
+main > section:first-child,
+section.hero {
+  background-color: transparent !important;
+}
+
+/* Keep readability professional */
+.hero::before,
+.home-hero::before {
+  pointer-events: none;
+}
+
+
+/* Exact Design 6 override added */
+
+/* =========================================================
+   EXACT DESIGN 6 - COASTAL INSPIRED BACKGROUND
+   Replaces old animated wave background completely.
+   ========================================================= */
+
+html, body {
+  min-height: 100%;
+  background: #062033 !important;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Remove/neutralize previous background effect layers */
+body::before,
+body::after,
+.bg-animation,
+.background-animation,
+.animated-background,
+.wave-background,
+.wave-lines,
+.wave-lines-bg,
+.ocean-bg,
+.ocean-background,
+.motion-background,
+.luxury-coastal-bg,
+.coastal-bg,
+#animatedBackground,
+#animated-bg,
+#waveCanvas,
+#bgCanvasOld,
+#luxuryCoastalBg {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Exact attached HTML canvas background */
+#bgCanvas {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  background: linear-gradient(135deg,#061724,#0c5069,#0a8792) !important;
+}
+
+/* Push all real site content above canvas */
+header,
+nav,
+main,
+section,
+footer,
+.site-header,
+.navbar,
+.nav-wrap,
+.nav-wrapper,
+.main-header,
+.header,
+.hero,
+.page,
+.content,
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header/nav must be on top */
+header,
+.site-header,
+.navbar,
+.nav-wrap,
+.nav-wrapper,
+.main-header,
+.header {
+  z-index: 100 !important;
+  overflow: visible !important;
+}
+
+/* Fix the header sitting/clipping against the top like the screenshot */
+.site-header,
+.navbar,
+header {
+  margin-top: 14px;
+}
+
+/* Remove old section background blocks where possible so Design 6 shows through */
+.hero,
+.home-hero,
+main > section:first-child,
+section.hero {
+  background-color: transparent !important;
+}
+
+/* Keep readability professional */
+.hero::before,
+.home-hero::before {
+  pointer-events: none;
+}
+
+
+
+
+/* =========================================================
+   MOBILE NAV OVERLAY FIX
+   Stops the opened hamburger menu from pushing video/hero down.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  header,
+  .site-header,
+  .navbar,
+  .nav-wrap,
+  .nav-wrapper,
+  .main-header,
+  .header {
+    position: fixed !important;
+    top: 12px !important;
+    left: 18px !important;
+    right: 18px !important;
+    width: auto !important;
+    z-index: 9999 !important;
+    margin-top: 0 !important;
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+
+  main,
+  .hero,
+  .home-hero,
+  section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Most common mobile menu containers */
+  .nav-menu,
+  .navbar-menu,
+  .mobile-menu,
+  .menu,
+  .nav-links,
+  .navigation,
+  .header-menu {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9998 !important;
+
+    background: rgba(10, 43, 67, 0.96) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 24px 70px rgba(0,0,0,.36) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+
+    padding: 18px 14px !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Keep links centered and professional in dropdown */
+  .nav-menu a,
+  .navbar-menu a,
+  .mobile-menu a,
+  .menu a,
+  .nav-links a,
+  .navigation a,
+  .header-menu a {
+    text-align: center !important;
+  }
+
+  /* Prevent the opened menu from increasing header height too aggressively */
+  header:has(.nav-menu),
+  header:has(.navbar-menu),
+  header:has(.mobile-menu),
+  header:has(.menu),
+  .site-header:has(.nav-menu),
+  .site-header:has(.navbar-menu),
+  .site-header:has(.mobile-menu),
+  .site-header:has(.menu),
+  .navbar:has(.nav-menu),
+  .navbar:has(.navbar-menu),
+  .navbar:has(.mobile-menu),
+  .navbar:has(.menu) {
+    overflow: visible !important;
+  }
+
+  /* Makes hero/video sit behind menu instead of being pushed */
+  video,
+  .hero video,
+  .home-hero video,
+  .hero-media,
+  .hero-video,
+  .video-bg,
+  .background-video {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+
+
+
+/* =========================================================
+   MOBILE NAV CLICK-FIX
+   Fixes hidden nav links blocking/taking clicks from buttons like Next/Pick Gear.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  header.nav,
+  header,
+  .site-header,
+  .navbar,
+  .main-header {
+    z-index: 9999 !important;
+  }
+
+  /* Default closed state: nav links exist visually hidden and cannot catch taps */
+  header.nav .nav-links,
+  .nav .nav-links,
+  .navbar .nav-links,
+  .site-header .nav-links,
+  .mobile-menu,
+  .navbar-menu,
+  .header-menu {
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-8px) scale(.98) !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Open states: only clickable when hamburger/menu is actually open */
+  header.nav.menu-open .nav-links,
+  header.nav.open .nav-links,
+  header.nav.active .nav-links,
+  .nav.menu-open .nav-links,
+  .nav.open .nav-links,
+  .nav.active .nav-links,
+  .navbar.menu-open .nav-links,
+  .navbar.open .nav-links,
+  .navbar.active .nav-links,
+  .site-header.menu-open .nav-links,
+  .site-header.open .nav-links,
+  .site-header.active .nav-links,
+  body.mobile-menu-open header.nav .nav-links,
+  body.mobile-menu-open .nav .nav-links,
+  body.nav-open header.nav .nav-links,
+  body.nav-open .nav .nav-links,
+  body.menu-open header.nav .nav-links,
+  body.menu-open .nav .nav-links,
+  .nav-links.active,
+  .nav-links.open,
+  .nav-links.show,
+  .nav-links.is-open,
+  .mobile-menu.active,
+  .mobile-menu.open,
+  .mobile-menu.show,
+  .navbar-menu.active,
+  .navbar-menu.open,
+  .navbar-menu.show {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    max-height: calc(100vh - 130px) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Make the dropdown a real overlay under the header, not a giant invisible layer */
+  header.nav .nav-links,
+  .nav .nav-links {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9998 !important;
+    background: rgba(10, 43, 67, 0.96) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 24px 70px rgba(0,0,0,.36) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    padding: 16px 14px !important;
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease !important;
+  }
+
+  /* Keep page controls above normal content, but below the opened menu */
+  main,
+  .order-uran-container,
+  .order-container,
+  .address-flow,
+  .map-shell,
+  .access-map,
+  #map,
+  .step-actions,
+  .choice-row,
+  .button-row,
+  .form-actions {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  /* Ensure important buttons can receive taps */
+  button,
+  .btn,
+  .button,
+  a.button,
+  .next,
+  .next-btn,
+  .primary-btn,
+  .cta,
+  .pick-gear,
+  .pickGear,
+  [data-next],
+  [data-action],
+  input,
+  select,
+  textarea {
+    position: relative;
+    z-index: 6;
+    pointer-events: auto !important;
+  }
+
+  /* Hamburger stays clickable */
+  .hamburger,
+  .menu-toggle,
+  .nav-toggle,
+  .mobile-toggle,
+  .hamburger-btn,
+  button[aria-label*="menu" i],
+  button[aria-label*="navigation" i] {
+    position: relative !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+  }
+}
+
+
+
+
+/* =========================================================
+   MOBILE MENU RESTORE + OVERLAY FIX
+   Hamburger opens nav links again, but closed menu cannot block taps.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  header.nav,
+  header,
+  .site-header,
+  .navbar,
+  .main-header {
+    position: fixed !important;
+    top: 12px !important;
+    left: 24px !important;
+    right: 24px !important;
+    width: auto !important;
+    z-index: 9999 !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+  }
+
+  header.nav .nav-inner,
+  .nav .nav-inner,
+  .navbar .nav-inner,
+  .site-header .nav-inner {
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  /* Closed state: no invisible click layer */
+  header.nav .nav-links,
+  .nav .nav-links,
+  .navbar .nav-links,
+  .site-header .nav-links {
+    position: absolute !important;
+    top: calc(100% + 12px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9998 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+
+    background: rgba(10, 43, 67, 0.97) !important;
+    border: 1px solid rgba(255,255,255,.2) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 24px 70px rgba(0,0,0,.36) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+
+    padding: 18px 14px !important;
+    max-height: calc(100vh - 135px) !important;
+    overflow-y: auto !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) scale(.98) !important;
+    transition: opacity .22s ease, transform .22s ease, visibility .22s ease !important;
+  }
+
+  /* Open state */
+  header.nav.mobile-menu-open .nav-links,
+  header.nav.menu-open .nav-links,
+  header.nav.open .nav-links,
+  header.nav.active .nav-links,
+  .nav.mobile-menu-open .nav-links,
+  .nav.menu-open .nav-links,
+  .nav.open .nav-links,
+  .nav.active .nav-links,
+  body.mobile-menu-open header.nav .nav-links,
+  body.mobile-menu-open .nav .nav-links {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  header.nav .nav-links a,
+  .nav .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 9px 12px !important;
+  }
+
+  .hamburger,
+  .menu-toggle,
+  .nav-toggle,
+  .mobile-toggle,
+  .hamburger-btn,
+  button[aria-label*="menu" i],
+  button[aria-label*="navigation" i] {
+    display: inline-flex !important;
+    position: relative !important;
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  .nav-cta,
+  .nav-phone,
+  header.nav .nav-cta {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  main,
+  .hero,
+  .home-hero,
+  .order-uran-container,
+  .order-container,
+  .address-flow,
+  .map-shell,
+  #map {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+}
+
+
+
+/* CLEAN WORKING NAV FIX */
+
+#bgCanvas{pointer-events:none!important}
+header.nav,header,.site-header,.navbar{position:relative;z-index:999}
+header.nav a,.nav a,.nav-links a,.nav-cta a,.nav-cta .btn,.nav-phone,.hamburger{pointer-events:auto!important}
+
+@media (min-width:769px){
+  header.nav .nav-links,.nav .nav-links{
+    display:flex!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+    transform:none!important;max-height:none!important;overflow:visible!important;position:static!important;
+  }
+  .hamburger,.menu-toggle,.nav-toggle,.mobile-toggle{display:none!important}
+}
+
+@media (max-width:768px){
+  header.nav{
+    position:fixed!important;top:12px!important;left:20px!important;right:20px!important;width:auto!important;
+    z-index:9999!important;margin:0!important;overflow:visible!important;
+  }
+  header.nav .nav-inner{position:relative!important;overflow:visible!important}
+  .hamburger,.menu-toggle,.nav-toggle,.mobile-toggle{
+    display:inline-flex!important;pointer-events:auto!important;cursor:pointer!important;z-index:10001!important;
+  }
+  header.nav .nav-links,.nav .nav-links{
+    position:absolute!important;top:calc(100% + 12px)!important;left:0!important;right:0!important;width:100%!important;
+    display:flex!important;flex-direction:column!important;align-items:center!important;gap:12px!important;
+    background:rgba(9,42,65,.96)!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:24px!important;
+    box-shadow:0 24px 70px rgba(0,0,0,.35)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;
+    padding:16px!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+    transform:translateY(-8px)!important;transition:opacity .2s ease,transform .2s ease,visibility .2s ease!important;
+    max-height:calc(100vh - 130px)!important;overflow-y:auto!important;z-index:10000!important;
+  }
+  header.nav.nav-open .nav-links,header.nav.menu-open .nav-links,body.nav-open header.nav .nav-links,body.mobile-menu-open header.nav .nav-links{
+    opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;
+  }
+  header.nav .nav-links a,.nav .nav-links a{
+    display:block!important;width:100%!important;text-align:center!important;color:#fff!important;text-decoration:none!important;
+    padding:10px 14px!important;pointer-events:auto!important;
+  }
+}
+
+
+
+/* FINAL NORMAL MOBILE NAV FIX */
+
+/* =========================================================
+   FINAL NORMAL MOBILE NAV FIX
+   Clean normal mobile header:
+   - Brand/logo left
+   - Hamburger top right
+   - Phone + Reserve button underneath
+   - Dropdown opens below without breaking layout
+   ========================================================= */
+
+@media (max-width: 768px) {
+  header.nav {
+    position: fixed !important;
+    top: 12px !important;
+    left: 18px !important;
+    right: 18px !important;
+    width: auto !important;
+    z-index: 9999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  header.nav .container,
+  header.nav .nav-inner {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 16px !important;
+
+    display: grid !important;
+    grid-template-columns: auto 44px !important;
+    grid-template-areas:
+      "brand menu"
+      "cta cta" !important;
+    align-items: center !important;
+    gap: 14px !important;
+
+    background: rgba(12, 44, 68, 0.96) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.28) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  header.nav .brand,
+  .nav .brand {
+    grid-area: brand !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  header.nav .brand img,
+  .nav .brand img {
+    width: 42px !important;
+    height: 42px !important;
+    flex: 0 0 42px !important;
+    object-fit: contain !important;
+  }
+
+  header.nav .brand-text,
+  header.nav .brand div,
+  .nav .brand-text,
+  .nav .brand div {
+    min-width: 0 !important;
+    display: block !important;
+  }
+
+  header.nav .brand-title,
+  header.nav .brand h1,
+  header.nav .brand strong,
+  .nav .brand-title,
+  .nav .brand h1,
+  .nav .brand strong {
+    display: block !important;
+    font-size: 18px !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  header.nav .brand-subtitle,
+  header.nav .brand span,
+  header.nav .brand small,
+  .nav .brand-subtitle,
+  .nav .brand span,
+  .nav .brand small {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+    margin-top: 3px !important;
+    white-space: nowrap !important;
+  }
+
+  header.nav .hamburger,
+  header.nav .menu-toggle,
+  header.nav .nav-toggle,
+  header.nav .mobile-toggle {
+    grid-area: menu !important;
+    justify-self: end !important;
+    align-self: center !important;
+
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: 1px solid rgba(255,255,255,.25) !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.08) !important;
+    color: #fff !important;
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  header.nav .hamburger span,
+  header.nav .hamburger div {
+    background: #fff !important;
+  }
+
+  header.nav .nav-cta,
+  header.nav .cta-wrap,
+  header.nav .nav-actions {
+    grid-area: cta !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  header.nav .nav-phone,
+  header.nav .phone-link,
+  header.nav .reserve-btn,
+  header.nav .btn,
+  header.nav .nav-cta a {
+    width: 100% !important;
+    max-width: none !important;
+    text-align: center !important;
+  }
+
+  /* Closed dropdown */
+  header.nav .nav-links {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+
+    background: rgba(8, 39, 61, .97) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.32) !important;
+    padding: 16px !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease !important;
+    z-index: 10000 !important;
+  }
+
+  header.nav.nav-open .nav-links,
+  header.nav.menu-open .nav-links,
+  body.nav-open header.nav .nav-links,
+  body.mobile-menu-open header.nav .nav-links {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  header.nav .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 14px !important;
+    border-radius: 999px !important;
+    text-align: center !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    pointer-events: auto !important;
+  }
+
+  header.nav .nav-links a.active,
+  header.nav .nav-links a:hover {
+    background: rgba(25, 103, 122, .72) !important;
+  }
+
+  /* Give fixed header room on pages */
+  body {
+    padding-top: 0 !important;
+  }
+}
+
+
+
+/* MOBILE NAV FINAL CLEAN V2 */
+
+/* =========================================================
+   MOBILE NAV FINAL CLEAN V2
+   - Brand logo + words fixed, no overlap
+   - Closed phone/reserve hidden on mobile
+   - Hamburger opens links + phone + reserve all at once
+   ========================================================= */
+
+@media (max-width: 768px) {
+  header.nav {
+    position: fixed !important;
+    top: 12px !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    z-index: 9999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  header.nav .container,
+  header.nav .nav-inner {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 78px !important;
+    margin: 0 !important;
+    padding: 14px 16px !important;
+
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 46px !important;
+    grid-template-areas:
+      "brand menu" !important;
+    align-items: center !important;
+    gap: 12px !important;
+
+    position: relative !important;
+    overflow: visible !important;
+
+    background: rgba(12, 44, 68, 0.96) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.28) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+  }
+
+  /* Brand/logo fixed */
+  header.nav .brand,
+  .nav .brand {
+    grid-area: brand !important;
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    text-align: left !important;
+    justify-content: start !important;
+    overflow: visible !important;
+  }
+
+  header.nav .brand img,
+  .nav .brand img {
+    grid-column: 1 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    object-fit: contain !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  header.nav .brand > div,
+  header.nav .brand .brand-text,
+  .nav .brand > div,
+  .nav .brand .brand-text {
+    grid-column: 2 !important;
+    min-width: 0 !important;
+    width: auto !important;
+    text-align: left !important;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  header.nav .brand h1,
+  header.nav .brand strong,
+  header.nav .brand .brand-title,
+  .nav .brand h1,
+  .nav .brand strong,
+  .nav .brand .brand-title {
+    display: block !important;
+    font-size: 19px !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  header.nav .brand span,
+  header.nav .brand small,
+  header.nav .brand .brand-subtitle,
+  .nav .brand span,
+  .nav .brand small,
+  .nav .brand .brand-subtitle {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+    margin: 3px 0 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+  }
+
+  /* Hamburger top right */
+  header.nav .hamburger,
+  header.nav .menu-toggle,
+  header.nav .nav-toggle,
+  header.nav .mobile-toggle {
+    grid-area: menu !important;
+    justify-self: end !important;
+    align-self: center !important;
+
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: 1px solid rgba(255,255,255,.28) !important;
+    border-radius: 13px !important;
+    background: rgba(255,255,255,.08) !important;
+    color: #fff !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 10001 !important;
+  }
+
+  /* Hide phone/reserve from top mobile header when closed */
+  header.nav .nav-cta,
+  header.nav .cta-wrap,
+  header.nav .nav-actions {
+    display: none !important;
+  }
+
+  /* Dropdown panel */
+  header.nav .nav-links {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+
+    background: rgba(8, 39, 61, .97) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.32) !important;
+    padding: 16px !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease !important;
+    z-index: 10000 !important;
+    max-height: calc(100vh - 115px) !important;
+    overflow-y: auto !important;
+  }
+
+  body.nav-open header.nav .nav-links,
+  body.mobile-menu-open header.nav .nav-links,
+  header.nav.nav-open .nav-links,
+  header.nav.menu-open .nav-links {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  header.nav .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 14px !important;
+    border-radius: 999px !important;
+    text-align: center !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    pointer-events: auto !important;
+    font-weight: 800 !important;
+  }
+
+  header.nav .nav-links a.active,
+  header.nav .nav-links a:hover {
+    background: rgba(25, 103, 122, .72) !important;
+  }
+
+  /* Phone + reserve buttons inside dropdown */
+  header.nav .nav-links .mobile-nav-extra {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin-top: 4px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid rgba(255,255,255,.14) !important;
+  }
+
+  header.nav .nav-links .mobile-phone-link {
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.24) !important;
+  }
+
+  header.nav .nav-links .mobile-reserve-link {
+    background: linear-gradient(135deg,#ffd77b,#ffad3f) !important;
+    color: #062033 !important;
+    border: 0 !important;
+  }
+}
+
+/* desktop: hide injected mobile-only items */
+@media (min-width: 769px) {
+  header.nav .nav-links .mobile-nav-extra {
+    display: none !important;
+  }
+}
+
+
+
+/* PREMIUM COASTAL MOTION BG */
+
+/* =========================================================
+   PREMIUM COASTAL MOTION BACKGROUND
+   Inspired by modern layered/reactive motion sites,
+   but redesigned for Beach Bums ocean/sun/reflection vibe.
+   ========================================================= */
+
+:root {
+  --bb-deep: #071826;
+  --bb-navy: #0b2b42;
+  --bb-teal: #0b6b78;
+  --bb-aqua: #2bc5d8;
+  --bb-sand: #ffd277;
+}
+
+/* Replace the previous background look */
+body {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,210,119,.18), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(43,197,216,.16), transparent 34%),
+    linear-gradient(135deg, #071826 0%, #0b2b42 42%, #0b6b78 100%) !important;
+  overflow-x: hidden;
+}
+
+/* Hide previous canvas background if it exists */
+#bgCanvas,
+#luxuryCoastalBg {
+  display: none !important;
+}
+
+/* New motion layer */
+.bb-motion-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(4,16,28,.92), rgba(7,44,64,.72), rgba(8,102,116,.64)),
+    radial-gradient(circle at 50% 30%, rgba(255,210,119,.10), transparent 30%);
+}
+
+/* Soft diagonal premium gradient panels */
+.bb-motion-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    linear-gradient(115deg, transparent 0 30%, rgba(255,255,255,.055) 30% 31%, transparent 31% 100%),
+    linear-gradient(115deg, transparent 0 48%, rgba(43,197,216,.07) 48% 49%, transparent 49% 100%),
+    linear-gradient(115deg, transparent 0 66%, rgba(255,210,119,.05) 66% 67%, transparent 67% 100%);
+  transform: translate3d(0,0,0);
+  animation: bb-panel-drift 18s ease-in-out infinite alternate;
+}
+
+/* Soft blurred sunlight/reflection orbs */
+.bb-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(22px);
+  opacity: .55;
+  mix-blend-mode: screen;
+  transform: translate3d(0,0,0);
+}
+
+.bb-orb.one {
+  width: 360px;
+  height: 360px;
+  left: 8%;
+  top: 18%;
+  background: radial-gradient(circle, rgba(255,210,119,.34), rgba(255,210,119,.08) 40%, transparent 70%);
+  animation: bb-orb-float-one 14s ease-in-out infinite alternate;
+}
+
+.bb-orb.two {
+  width: 420px;
+  height: 420px;
+  right: -6%;
+  top: 34%;
+  background: radial-gradient(circle, rgba(43,197,216,.34), rgba(43,197,216,.08) 42%, transparent 72%);
+  animation: bb-orb-float-two 17s ease-in-out infinite alternate;
+}
+
+.bb-orb.three {
+  width: 320px;
+  height: 320px;
+  left: 36%;
+  bottom: 5%;
+  background: radial-gradient(circle, rgba(255,255,255,.20), rgba(43,197,216,.08) 45%, transparent 72%);
+  animation: bb-orb-float-three 20s ease-in-out infinite alternate;
+}
+
+/* Layered “ocean contour” lines */
+.bb-wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 260px;
+  opacity: .52;
+  background-repeat: repeat-x;
+  background-size: 900px 260px;
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+}
+
+.bb-wave.wave-a {
+  top: 12%;
+  background-image: url("data:image/svg+xml,%3Csvg width='900' height='260' viewBox='0 0 900 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 152 C90 72 160 225 255 145 S420 70 520 150 S680 230 900 122' fill='none' stroke='rgba(255,255,255,.38)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M0 184 C120 108 195 242 315 165 S520 98 640 178 S760 230 900 154' fill='none' stroke='rgba(43,197,216,.34)' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  animation: bb-wave-slide-a 24s linear infinite;
+}
+
+.bb-wave.wave-b {
+  top: 36%;
+  opacity: .42;
+  background-size: 1050px 260px;
+  background-image: url("data:image/svg+xml,%3Csvg width='1050' height='260' viewBox='0 0 1050 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120 C155 210 260 45 405 138 S650 228 790 118 S920 40 1050 112' fill='none' stroke='rgba(255,210,119,.30)' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M0 160 C160 240 280 90 435 168 S665 232 820 158 S930 78 1050 150' fill='none' stroke='rgba(255,255,255,.30)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  animation: bb-wave-slide-b 34s linear infinite reverse;
+}
+
+.bb-wave.wave-c {
+  bottom: 8%;
+  opacity: .34;
+  background-size: 1150px 260px;
+  background-image: url("data:image/svg+xml,%3Csvg width='1150' height='260' viewBox='0 0 1150 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 98 C180 190 280 35 460 118 S725 220 900 120 S1010 55 1150 116' fill='none' stroke='rgba(43,197,216,.36)' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M0 145 C180 230 315 84 495 155 S760 230 930 158 S1040 94 1150 154' fill='none' stroke='rgba(255,255,255,.22)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  animation: bb-wave-slide-c 42s linear infinite;
+}
+
+/* Sun reflection bars, like moving light across water */
+.bb-shimmer {
+  position: absolute;
+  inset: -20% 0;
+  opacity: .18;
+  background:
+    linear-gradient(112deg, transparent 0 38%, rgba(255,236,178,.45) 39%, transparent 41%),
+    linear-gradient(112deg, transparent 0 52%, rgba(255,255,255,.24) 53%, transparent 55%),
+    linear-gradient(112deg, transparent 0 71%, rgba(43,197,216,.30) 72%, transparent 74%);
+  animation: bb-shimmer-move 11s ease-in-out infinite alternate;
+}
+
+/* Soft noise/vignette for premium look */
+.bb-motion-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 0 42%, rgba(0,0,0,.26) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.24), transparent 34%, rgba(0,0,0,.18));
+}
+
+/* Make content sit above the motion background */
+header,
+main,
+section,
+footer,
+.nav,
+.hero,
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header should feel like it belongs on the premium background */
+header.nav .nav-inner,
+header.nav .container {
+  background: rgba(8, 31, 49, .82) !important;
+  backdrop-filter: blur(18px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  box-shadow: 0 22px 60px rgba(0,0,0,.22) !important;
+}
+
+/* If hero has hard old background overlay, soften it */
+.hero,
+.home-hero {
+  background-color: transparent !important;
+}
+
+@keyframes bb-panel-drift {
+  from { transform: translate3d(-2%, -1%, 0) rotate(-1deg); }
+  to { transform: translate3d(2%, 1%, 0) rotate(1deg); }
+}
+
+@keyframes bb-orb-float-one {
+  from { transform: translate3d(-16px, -10px, 0) scale(1); }
+  to { transform: translate3d(22px, 28px, 0) scale(1.08); }
+}
+
+@keyframes bb-orb-float-two {
+  from { transform: translate3d(18px, 22px, 0) scale(1); }
+  to { transform: translate3d(-28px, -18px, 0) scale(1.06); }
+}
+
+@keyframes bb-orb-float-three {
+  from { transform: translate3d(-22px, 16px, 0) scale(1); }
+  to { transform: translate3d(28px, -16px, 0) scale(1.08); }
+}
+
+@keyframes bb-wave-slide-a {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-900px,0,0); }
+}
+
+@keyframes bb-wave-slide-b {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-1050px,0,0); }
+}
+
+@keyframes bb-wave-slide-c {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-1150px,0,0); }
+}
+
+@keyframes bb-shimmer-move {
+  from { transform: translate3d(-3%, -1%, 0); opacity: .12; }
+  to { transform: translate3d(3%, 1%, 0); opacity: .22; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bb-motion-bg *,
+  .bb-motion-bg::before,
+  .bb-motion-bg::after {
+    animation: none !important;
+  }
+}
+
+
+
+/* OCEANFRONT MODAL POSITION FIX */
+
+/* =========================================================
+   OCEANFRONT MODAL POSITION FIX
+   Keeps the oceanfront popup centered and visible.
+   ========================================================= */
+
+.bb-oceanfront-modal-fixed {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 999999 !important;
+  width: min(640px, calc(100vw - 32px)) !important;
+  max-width: min(640px, calc(100vw - 32px)) !important;
+  margin: 0 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 30px 90px rgba(0,0,0,.45) !important;
+}
+
+.bb-oceanfront-overlay-fixed {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999998 !important;
+  background: rgba(0, 12, 22, .58) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+@media (max-width: 768px) {
+  .bb-oceanfront-modal-fixed {
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+  }
+}
+

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order - Address | Beach Bums</title>
+  <meta name="description" content="Enter your beach address for your Beach Bums rental delivery on Isle of Palms.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/mobile-nav-final-clean-v2.css">
+<link rel="stylesheet" href="assets/premium-coastal-motion-bg.css">
+<link rel="stylesheet" href="assets/oceanfront-modal-position-fix.css">
+<link rel="stylesheet" href="assets/nav-clean-footer-fix.css">
+</head>
+
+<body class="address-page">
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.webp" alt="Beach Bums logo">
+        <div>
+          <div style="font-size:1.05rem">Beach Bums</div>
+          <div class="muted" style="font-size:.86rem">Isle of Palms Rentals</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn small ghost" href="tel:8437540102">Same Day: 843-754-0102</a>
+        <a class="btn ghost" href="index.html">Home</a>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="order-wrap container">
+    <h1 id="pageTitle" style="margin:10px 0 6px;">Enter Your Beach Address</h1>
+    <p id="pageSubtitle" class="muted" style="margin:0 0 12px;">
+      Paste the address where you’re staying. We’ll recommend the closest beach access automatically.
+    </p>
+
+    <div class="split">
+      <div class="card" id="addressSection">
+        <div id="err" class="error"></div>
+
+        <div class="field">
+          <label id="addressLabel">Beach property address</label>
+          <textarea id="address" placeholder="Street address, Isle of Palms, SC 29451"></textarea>
+          <div id="addressHelp" class="help">Tip: Paste the full address — the map updates automatically.</div>
+        </div>
+
+        <div class="address-actions" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px;">
+          <button class="btn" id="backBtn">← Back</button>
+          <button class="btn primary" id="nextBtn">Next: Pick Gear →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map + access selection is appears after an address is entered; address entry will auto-select the closest point -->
+    <div id="resultsWrap" class="mobile-priority-layout" style="margin-top:14px;">
+      <div class="card" id="selectedAccessCard" style="margin-bottom:12px;">
+        <div id="selectedBox" class="notice selected-access-emphasis">
+          <span class="selected-access-label">Selected access:</span><span id="selectedName">(none yet)</span>
+        </div>
+      </div>
+
+      <div id="mapPriorityBlock">
+        <h3 class="map-title" style="margin:0 0 10px;">Map (tap an access point)</h3>
+        <div class="map-wrap">
+          <div id="accessMap"></div>
+        </div>
+        <div class="map-legend">Tip: Click a marker to select that access point.</div>
+      </div>
+
+      <div class="card" id="quickNotesCard" style="margin-top:12px; margin-bottom:12px;">
+        <h3 style="margin:0 0 10px;">Quick Notes</h3>
+        <div class="notice" style="margin-bottom:10px;">
+          <b>Umbrellas</b> include a table.
+          <div class="legend">
+            <div class="item"><span class="dot yellow"></span><span>Access points</span></div>
+            <div class="item"><span class="dot red"></span><span>Your address</span></div>
+            <div class="item"><span class="dot blue"></span><span>Selected access</span></div>
+          </div>
+        </div>
+
+        <p class="muted" style="margin:0;">
+          Use the map to pick a different access point anytime.
+        </p>
+      </div>
+
+      <div class="hr"></div>
+
+      <div id="oceanfront-note" class="notice" style="display:none; margin-top:10px;">
+        For oceanfront properties, chairs are set up in front of your private boardwalk for easy beach access.
+      </div>
+
+      <div class="hr"></div>
+
+      <div id="suggestedTitle" class="help" style="margin:6px 0 10px;">Suggested (based on your address)</div>
+      <div id="suggestions" class="pay-grid" style="grid-template-columns:1fr;"></div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div>© <span id="y"></span> Beach Bums</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Invalid address message modal -->
+  <div id="invalidAddressModal" class="bb-modal-overlay" aria-hidden="true" style="z-index:9999;">
+    <div class="bb-modal" role="dialog" aria-modal="true" aria-labelledby="invalidAddressModalTitle">
+      <button type="button" class="bb-modal-close" aria-label="Close" onclick="closeInvalidAddressModal()">×</button>
+      <h3 id="invalidAddressModalTitle" class="bb-modal-title" style="color:#d32f2f;">Address Not Found</h3>
+      <p class="bb-modal-text">Please enter a valid property address.</p>
+      <button type="button" class="bb-modal-btn bb-next-btn" style="margin-top:14px;width:100%"
+        onclick="closeInvalidAddressModal()">Got it</button>
+    </div>
+  </div>
+
+  <!-- Oceanfront message modal -->
+  <div id="oceanfrontModal" class="bb-modal-overlay" aria-hidden="true">
+    <div class="bb-modal" role="dialog" aria-modal="true" aria-labelledby="oceanfrontModalTitle">
+      <button type="button" class="bb-modal-close" aria-label="Close">×</button>
+      <h3 id="oceanfrontModalTitle" class="bb-modal-title">Oceanfront delivery</h3>
+      <p class="bb-modal-text">For ocean front properties, Chairs are put in front of personal board walk for easy
+        access</p>
+      <button type="button" class="bb-modal-btn">Got it</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/order-state.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="js/order-address.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script src="assets/mobile-nav-final-clean-v2.js" defer></script>
+<script src="assets/premium-coastal-motion-bg.js" defer></script>
+<script src="assets/closest-access-except-boardwalk.js"></script>
+<script src="assets/1400-ocean-and-oceanfront-modal-fix.js"></script>
+<script src="assets/1400-ocean-100ft-seacabinsA-fix.js"></script>
+<script src="keep-shopping-fix.js"></script>
+</body>
+
+</html>

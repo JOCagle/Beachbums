@@ -1,0 +1,283 @@
+/* Beach Bums — MOBILE DATE FIX v2
+   New approach: on phones, stop using Booqable's broken popover UI and show our
+   own full-screen date picker ABOVE the whole page. The script then pushes the
+   selected dates back into Booqable and refreshes its widgets. */
+@media (max-width: 768px) {
+  .bb-date-card { position: relative !important; z-index: 2 !important; }
+  .bb-mobile-date-trigger {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,.7);
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }
+  .bb-mobile-date-trigger button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: #fff;
+    color: #667887;
+    padding: 18px 8px;
+    font: inherit;
+    min-height: 54px;
+  }
+  .bb-mobile-date-trigger button:first-child { border-right: 1px solid #e5eaf0; }
+  .bb-mobile-date-trigger button:active { background: #eef7fb; }
+
+  /* Keep Booqable's real datepicker available for syncing, but don't let its broken
+     mobile popover take over the screen. */
+  .bb-date-card > .booqable-datepicker {
+    position: absolute !important;
+    left: -99999px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0.01 !important;
+    pointer-events: none !important;
+  }
+
+  html.bb-mobile-calendar-open, html.bb-mobile-calendar-open body {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  #bbMobileCalendarOverlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483647 !important;
+    display: none;
+    background: rgba(3, 16, 26, .72) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: auto !important;
+  }
+  html.bb-mobile-calendar-open #bbMobileCalendarOverlay { display: block !important; }
+
+  .bb-mobile-calendar-panel {
+    position: fixed !important;
+    left: 10px !important;
+    right: 10px !important;
+    top: max(10px, env(safe-area-inset-top)) !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    z-index: 2147483647 !important;
+    background: #fff !important;
+    color: #10202b !important;
+    border-radius: 18px !important;
+    box-shadow: 0 28px 90px rgba(0,0,0,.6) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+  }
+  .bb-mobile-calendar-head {
+    padding: 14px 14px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #e6edf2;
+  }
+  .bb-mobile-calendar-head h3 { margin: 0; font-size: 18px; }
+  .bb-mobile-calendar-close {
+    border: 0;
+    background: #eef3f6;
+    color: #10202b;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    font-size: 24px;
+    line-height: 1;
+  }
+  .bb-mobile-calendar-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #f7fafc;
+    border-bottom: 1px solid #e6edf2;
+  }
+  .bb-mobile-calendar-summary div {
+    background: #fff;
+    border: 1px solid #dce5ec;
+    border-radius: 12px;
+    padding: 9px;
+    text-align: center;
+  }
+  .bb-mobile-calendar-summary small { display:block; color:#607282; font-size:11px; font-weight:700; margin-bottom:3px; }
+  .bb-mobile-calendar-summary strong { font-size:14px; }
+  .bb-mobile-month-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+  }
+  .bb-mobile-month-nav button {
+    border: 0;
+    background: #eef3f6;
+    width: 42px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 22px;
+  }
+  .bb-mobile-calendar-scroll {
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0 14px 12px;
+    flex: 1 1 auto;
+  }
+  .bb-mobile-month-title { text-align: center; font-weight: 800; margin: 4px 0 10px; }
+  .bb-mobile-weekdays, .bb-mobile-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  .bb-mobile-weekdays span { text-align:center; font-size:11px; font-weight:800; color:#667887; }
+  .bb-mobile-days button {
+    border: 0;
+    border-radius: 999px;
+    min-height: 42px;
+    background: #75db83;
+    color: #082018;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .bb-mobile-days button.bb-empty { visibility:hidden; }
+  .bb-mobile-days button.bb-disabled { background:#e5e9ed; color:#9aa6af; }
+  .bb-mobile-days button.bb-selected { outline: 3px solid #2563ff; background:#75db83; }
+  .bb-mobile-days button.bb-inrange { background:#b9edc1; }
+  .bb-mobile-calendar-foot {
+    padding: 12px 14px;
+    border-top: 1px solid #e6edf2;
+    background: #fff;
+    display: flex;
+    gap: 10px;
+  }
+  .bb-mobile-calendar-foot button {
+    border: 0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .bb-mobile-clear { background:#eef3f6; color:#10202b; flex: 0 0 112px; }
+  .bb-mobile-apply { background:#df2508; color:#fff; flex: 1; }
+}
+
+@media (min-width: 769px) {
+  .bb-mobile-date-trigger, #bbMobileCalendarOverlay { display: none !important; }
+}
+
+/* Temporary bridge: when the custom mobile picker applies dates, briefly wake up
+   Booqable's real hidden datepicker so Booqable receives actual click/change events. */
+@media (max-width: 768px) {
+  .bb-date-card > .booqable-datepicker.bb-bq-syncing {
+    position: fixed !important;
+    left: 4px !important;
+    top: 4px !important;
+    width: 380px !important;
+    height: 96px !important;
+    min-height: 96px !important;
+    max-height: none !important;
+    opacity: 0.02 !important;
+    pointer-events: auto !important;
+    z-index: 2147483000 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+  html.bb-bq-syncing .bb-mobile-date-trigger { pointer-events: none !important; }
+  html.bb-bq-syncing [class*="datepicker"],
+  html.bb-bq-syncing [class*="calendar"],
+  html.bb-bq-syncing [role="dialog"] {
+    pointer-events: auto !important;
+  }
+}
+
+/* Flicker cleanup: the Booqable sync is working, but its real date picker can flash
+   as a white box for 1-2 seconds. Keep that hidden while still allowing the script
+   to click it programmatically. */
+@media (max-width: 768px) {
+  html.bb-bq-syncing .bb-date-card > .booqable-datepicker.bb-bq-syncing {
+    opacity: 0.001 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: opacity(0.001) !important;
+  }
+
+  html.bb-bq-syncing .bb-date-card > .booqable-datepicker.bb-bq-syncing * {
+    opacity: 0.001 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html.bb-bq-syncing [class*="datepicker"],
+  html.bb-bq-syncing [class*="DatePicker"],
+  html.bb-bq-syncing [class*="date-picker"],
+  html.bb-bq-syncing [class*="calendar"],
+  html.bb-bq-syncing [class*="Calendar"] {
+    opacity: 0.001 !important;
+    filter: opacity(0.001) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Prevent Booqable's temporary white calendar panel from covering the gear page. */
+  html.bb-bq-syncing body > div:not(#bbMobileCalendarOverlay) {
+    background-color: transparent !important;
+  }
+}
+
+/* FINAL NO-FLASH PATCH:
+   During the hidden Booqable sync, move Booqable's temporary reservation/date panels
+   completely off-screen. They stay in the DOM so the script can click them, but the
+   customer never sees the white/red Booqable date panel flash behind the page. */
+@media (max-width: 768px) {
+  html.bb-bq-syncing .bb-hide-bq-sync-panel {
+    position: fixed !important;
+    left: -200vw !important;
+    top: -200vh !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    opacity: 0.001 !important;
+    filter: opacity(0.001) !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  html.bb-bq-syncing .bb-hide-bq-sync-panel * {
+    opacity: 0.001 !important;
+    filter: opacity(0.001) !important;
+  }
+}
+
+
+/* Final polish: hide Booqable's native date picker while the mobile calendar silently syncs.
+   This stops the 1-2 second white date picker flash after clicking Apply. */
+@media (max-width: 768px) {
+  html.bb-hide-native-datepicker .flatpickr-calendar,
+  html.bb-hide-native-datepicker [class*="datepicker" i]:not(.bb-mobile-date-trigger):not(#bbMobileCalendarOverlay):not(#bbMobileCalendarOverlay *),
+  html.bb-hide-native-datepicker [class*="date-picker" i]:not(.bb-mobile-date-trigger):not(#bbMobileCalendarOverlay):not(#bbMobileCalendarOverlay *),
+  html.bb-hide-native-datepicker [class*="calendar" i]:not(#bbMobileCalendarOverlay):not(#bbMobileCalendarOverlay *),
+  html.bb-hide-native-datepicker [role="dialog"]:not(#bbMobileCalendarOverlay):not(#bbMobileCalendarOverlay *) {
+    opacity: 0 !important;
+    filter: opacity(0) !important;
+    transform: scale(0.01) translate(-9999px, -9999px) !important;
+    pointer-events: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html.bb-hide-native-datepicker body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    background: transparent;
+    pointer-events: none;
+  }
+}

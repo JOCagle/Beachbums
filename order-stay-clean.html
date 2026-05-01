@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order - Stay Type | Beach Bums</title>
+  <meta name="description" content="Choose your stay type to start your Beach Bums beach rental order on Isle of Palms.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/mobile-nav-final-clean-v2.css">
+<link rel="stylesheet" href="assets/premium-coastal-motion-bg.css">
+<link rel="stylesheet" href="assets/oceanfront-modal-position-fix.css">
+<link rel="stylesheet" href="assets/nav-clean-footer-fix.css">
+<link rel="stylesheet" href="assets/stay-page-final-polish.css">
+</head>
+<body class="order-page">
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <header class="order-header stay-topbar">
+    <a class="brand" href="index.html">Beach Bums</a>
+    <a class="order-back-link" href="index.html">← Back to Home</a>
+  </header>
+
+  <main class="container order-container">
+    <div class="stay-card stay-card-polished">
+      <div class="stay-logo-wrap">
+        <img class="stay-logo" src="assets/logo.webp" alt="Beach Bums" onerror="this.style.display='none'"/>
+      </div>
+      <div class="stay-badge">Step 1 of 3 • Start your setup</div>
+      <h1 class="stay-title">Where are you staying?<br><span style='font-size:16px; opacity:0.7;'>Tap below</span></h1>
+      <p class="stay-lead">Choose one to continue</p>
+<div class="stay-grid stay-grid-polished">
+        <button class="stay-option" id="stay-day" type="button">
+          <div class="stay-icon"><img src="assets/OIP.webp" alt="Visiting for the day"></div>
+          <div class="stay-text">
+            <div class="stay-label">Just visiting</div>
+            <div class="stay-sub">Pick access</div>
+          </div>
+        </button>
+
+        <button class="stay-option" id="stay-overnight" type="button">
+          <div class="stay-icon"><img src="assets/beach-house.jpg" alt="Overnight stay"></div>
+          <div class="stay-text">
+            <div class="stay-label">Overnight stay</div>
+            <div class="stay-sub">House or condo</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Lodging type modal (shown after selecting "I'm staying overnight") -->
+      <div class="bb-modal-overlay" id="lodgingModal" aria-hidden="true">
+        <div class="bb-modal" role="dialog" aria-modal="true" aria-labelledby="lodgingTitle">
+          <button class="bb-modal-close" id="lodgingClose" type="button" aria-label="Close">×</button>
+          <h2 class="bb-modal-title" id="lodgingTitle">Are you staying in a:</h2>
+          <div class="bb-modal-actions">
+            <button class="bb-modal-btn" id="lodgingHouse" type="button">House</button>
+            <button class="bb-modal-btn" id="lodgingCondo" type="button">Condo, Hotel, or Villa</button>
+          </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <script src="js/order-state.js"></script>
+  <script src="js/order-stay.js"></script>
+<script src="assets/mobile-nav-final-clean-v2.js" defer></script>
+<script src="assets/premium-coastal-motion-bg.js" defer></script>
+<script src="assets/closest-access-except-boardwalk.js"></script>
+<script src="assets/1400-ocean-and-oceanfront-modal-fix.js"></script>
+<script src="assets/1400-ocean-100ft-seacabinsA-fix.js"></script>
+<script src="keep-shopping-fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>Order - Gear | Beach Bums</title>
+  <meta name="description" content="Pick your beach chairs, umbrellas, and coolers for your Isle of Palms rental.">
+  <meta name="robots" content="noindex, nofollow">
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/mobile-nav-final-clean-v2.css">
+<link rel="stylesheet" href="assets/premium-coastal-motion-bg.css">
+<link rel="stylesheet" href="assets/oceanfront-modal-position-fix.css">
+<link rel="stylesheet" href="assets/nav-clean-footer-fix.css">
+<link rel="stylesheet" href="assets/mobile-date-3step-helper-v3.css">
+</head>
+
+<body data-allow-checkout="true">
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img alt="Beach Bums logo" src="assets/logo.webp" />
+        <div>
+          <div style="font-size:1.05rem">Beach Bums</div>
+          <div class="muted" style="font-size:.86rem">Isle of Palms Rentals</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn small ghost" href="tel:8437540102">Same Day: 843-754-0102</a>
+        <a class="btn ghost" href="index.html">Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="order-wrap container">
+    <h1 style="margin:10px 0 6px;">2) Pick your gear</h1>
+    <p class="muted" style="margin:0 0 12px;">Keep it simple: address/access → gear → review → pay.</p>
+
+    <div class="split">
+      <div class="card">
+        <div class="error" id="err"></div>
+        <div class="card soft" style="padding:0; overflow:hidden;">
+          <img alt="All gear photo" src="assets/gear.webp" />
+        </div>
+        <div class="hr"></div>
+        <!-- Booqable embeds: date picker, product list, and cart. -->
+        <!-- 2) Optionally: Use tags or collections in Booqable to only show Chairs/Umbrellas/Coolers here. -->
+        <div class="notice" style="margin:10px 0 14px;">
+          <b>Step 1:</b> Add your gear to the cart below.<br />
+          <span class="muted">When you're done, click <b>Next</b> to review &amp; pay.</span>
+        </div>
+        <!-- Booqable native date picker: restored to live-site behavior. -->
+        <div class="booqable-datepicker"></div>
+        <!-- Product list (recommended) -->
+        <!-- You can filter by tags/collections. Example:
+           <div class="booqable-product-list" data-tags="chairs,umbrellas,coolers"></div>
+      
+      <div class="hr"></div>
+
+      <div class="card soft" style="padding:14px; margin:12px 0;">
+        <div style="font-weight:700; margin-bottom:6px;">Your cart</div>
+      <div class="muted" style="margin-bottom:10px;">Choose your dates, add your gear, then use the Booqable cart sidebar to checkout.</div>
+        <div class="booqable-cart"></div>
+      </div>
+-->
+        <div class="booqable-product-list" data-show-search="false"></div>
+        <div class="hr"></div>
+        <div class="card soft" style="padding:14px; margin:12px 0;">
+          <div style="font-weight:700; margin-bottom:6px;">Your cart</div>
+          <div class="muted" style="margin-bottom:10px;">Adjust quantities here. When ready, click <b>Next</b>.</div>
+          <div class="booqable-cart"></div>
+        </div>
+
+        <div class="hr"></div>
+        <div class="notice" style="margin-top:12px;">
+          <b>Bundle:</b> 2 chairs + 1 umbrella (table included) = <b>$48/day</b> (auto-applied).
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:14px;">
+          <!-- Checkout happens via the Booqable cart sidebar -->
+        </div>
+      </div>
+      <aside class="card">
+        <h3 style="margin-top:0">Motto</h3>
+        <p class="muted" style="margin-top:6px;">What’s up beach</p>
+        <div class="hr"></div>
+        <div class="notice">
+          <b>Umbrella note:</b> Every umbrella comes with a table.
+        </div>
+        <div class="hr"></div>
+        <p class="muted">
+          Setup by <b>9:30 AM</b>, removed after <b>5:30 PM</b> daily.
+        </p>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div>© <span id="y"></span> Beach Bums</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://ec47cdcc-911a-4e40-be7e-24fd68ffbd72.assets.booqable.com/v2/booqable.js"></script>
+  <script src="js/booqable-config.js"></script>
+  <script src="js/booqable-lock.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/order-state.js"></script>
+  <!-- No "Next" button: checkout occurs via the Booqable cart sidebar --><script src="keep-shopping-fix.js"></script>
+  <script src="assets/mobile-date-3step-helper-v3.js" defer></script>
+</body>
+
+</html>

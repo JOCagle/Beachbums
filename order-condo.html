@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order - Condo/Hotel/Villa | Beach Bums</title>
+  <meta name="description" content="Select your condo, hotel, or villa for Beach Bums beach rental delivery on Isle of Palms.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/mobile-nav-final-clean-v2.css">
+<link rel="stylesheet" href="assets/premium-coastal-motion-bg.css">
+<link rel="stylesheet" href="assets/oceanfront-modal-position-fix.css">
+<link rel="stylesheet" href="assets/nav-clean-footer-fix.css">
+</head>
+<body class="order-page">
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="order-modal-overlay">
+    <div class="order-modal">
+      <button class="order-modal-close" id="closeBtn" aria-label="Close">×</button>
+
+      <div class="order-modal-header">
+        <img src="assets/logo.webp" alt="Beach Bums" class="order-logo" />
+        <h1 class="order-title">Select your Condo, Hotel, or Villa</h1>
+      </div>
+
+      <div class="order-modal-body">
+        <div id="condoError" style="display:none; margin:10px 0 14px; padding:12px 14px; border-radius:12px; background:rgba(255,255,255,0.08); color:#fff; font-size:14px; line-height:1.35;"></div>
+        <div class="form-grid">
+          <div class="form-row">
+            <label class="form-label" for="condoSelect">Condo / Hotel / Villa</label>
+            <select id="condoSelect" class="customer-address-input"></select>
+          </div>
+
+          <div class="form-row" id="accessRow">
+            <label class="form-label" for="accessSelect">Recommended beach access points</label>
+            <select id="accessSelect" class="customer-address-input"></select>
+            <div class="help-text">
+              Select your exact beach access (ex: <b>South</b>, <b>Middle</b>, or <b>North</b>). You can also click a blue marker on the map.
+            </div>
+          </div>
+        </div>
+
+        <div class="selected-access-point" id="selectedLabel" style="margin-top:14px;"></div>
+
+        <!-- Top CTA (always visible above the map) -->
+        <div class="condo-actions condo-actions--top">
+          <button class="bb-next-btn" id="nextBtnTop" type="button" disabled>Next: Pick Gear →</button>
+        </div>
+
+        <div class="map-wrap">
+          <div id="condoMap" class="condo-map" aria-label="Map"></div>
+          <div id="mapLoading" class="map-loading" aria-live="polite">
+            <div class="map-loading-card">
+              <div class="map-spinner" aria-hidden="true"></div>
+              <div>
+                <div class="map-loading-title">Loading map…</div>
+                <div class="map-loading-sub">Just a second — getting your condo + beach access points ready.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="condo-actions">
+          <!-- Bottom Next button removed (keep only the top button) -->
+          <div id="recommendedText" class="condo-recommended"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Boardwalk Inn message modal (matches Oceanfront UI) -->
+  <div id="boardwalkModal" class="bb-modal-overlay" aria-hidden="true">
+    <div class="bb-modal" role="dialog" aria-modal="true" aria-labelledby="boardwalkModalTitle">
+      <button type="button" class="bb-modal-close" aria-label="Close">×</button>
+      <h3 id="boardwalkModalTitle" class="bb-modal-title">Boardwalk Inn</h3>
+      <p class="bb-modal-text">Beach Bums is not allowed to place chairs in front of Boardwalk Inn. Please select your preferred beach access.</p>
+      <button type="button" class="bb-modal-btn">Got it</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/order-state.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="js/order-condo.js"></script>
+<script src="assets/mobile-nav-final-clean-v2.js" defer></script>
+<script src="assets/premium-coastal-motion-bg.js" defer></script>
+<script src="assets/closest-access-except-boardwalk.js"></script>
+<script src="assets/1400-ocean-and-oceanfront-modal-fix.js"></script>
+<script src="assets/1400-ocean-100ft-seacabinsA-fix.js"></script>
+<script src="keep-shopping-fix.js"></script>
+</body>
+</html>

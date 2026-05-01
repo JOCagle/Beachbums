@@ -1,0 +1,1 @@
+Fixes mobile brand overlap and makes hamburger show nav links, phone number, and reserve button all at once.

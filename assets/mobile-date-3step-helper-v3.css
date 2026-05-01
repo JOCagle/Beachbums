@@ -1,0 +1,22 @@
+@media (max-width: 800px) {
+  #bb-3step-apply-dates {
+    position: fixed !important;
+    left: 50% !important;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147483647 !important;
+    display: none;
+    width: min(290px, calc(100vw - 52px)) !important;
+    min-height: 54px !important;
+    padding: 15px 22px !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+    background: #e92d0f !important;
+    color: #fff !important;
+    font: 900 16px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    box-shadow: 0 16px 38px rgba(233, 45, 15, .34), 0 10px 28px rgba(0,0,0,.22) !important;
+    cursor: pointer !important;
+    text-align: center !important;
+  }
+  #bb-3step-apply-dates:active { transform: translateX(-50%) scale(.98) !important; }
+}

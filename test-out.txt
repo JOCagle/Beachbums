@@ -1,0 +1,16 @@
+=== Test POST to webhook with order number ===
+Status: 200
+{
+  "ok": true,
+  "id": "0bbcc085-2ada-49f9-b65b-3e14f4bef093",
+  "source": "webhook"
+}
+
+=== CSV Order Numbers ===
+[
+  "1493",
+  "1490",
+  "1503",
+  "1580",
+  "1583"
+]
