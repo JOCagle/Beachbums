@@ -164,58 +164,60 @@ module.exports = async function handler(req, res) {
 };
 
 // ──────────────────────────────────────────────
-// Fetch all reserved orders from Booqable v1 API
-// that start on the given date (YYYY-MM-DD)
+// Fetch all reserved AND started orders from Booqable v1 API
+// that start on the given date (YYYY-MM-DD).
+// Checks both statuses so orders that transitioned from
+// reserved → started before the sync runs aren't missed.
 // ──────────────────────────────────────────────
 async function fetchTodaysOrders(apiKey, targetDate) {
+  const statuses = ["reserved", "started"];
   const allTodayOrders = [];
-  let page = 1;
-  const perPage = 50;
-  let totalPages = 1;
+  const seenIds = new Set();
 
-  // We need to paginate through ALL reserved orders
-  // and filter by starts_at date
-  while (page <= totalPages) {
-    const url =
-      `https://${BOOQABLE_SLUG}.booqable.com/api/1/orders` +
-      `?api_key=${apiKey}&status=reserved&per=${perPage}&page=${page}`;
+  for (const status of statuses) {
+    let page = 1;
+    const perPage = 50;
+    let totalPages = 1;
 
-    const res = await fetch(url, { headers: { Accept: "application/json" } });
-    if (!res.ok) {
-      console.error(`Booqable API error on page ${page}:`, res.status);
-      break;
-    }
+    console.log(`Fetching Booqable orders with status=${status}...`);
 
-    const data = await res.json();
-    const orders = data.orders || [];
-    const totalCount = data.meta?.total_count || 0;
-    totalPages = Math.ceil(totalCount / perPage);
+    while (page <= totalPages) {
+      const url =
+        `https://${BOOQABLE_SLUG}.booqable.com/api/1/orders` +
+        `?api_key=${apiKey}&status=${status}&per=${perPage}&page=${page}`;
 
-    for (const order of orders) {
-      // Check if this order starts today
-      const startsAt = order.starts_at || "";
-      const orderDate = startsAt.substring(0, 10);
-
-      // Convert UTC start time to Eastern date
-      // Booqable stores starts_at in UTC (e.g., "2026-04-02T09:00:00.000Z")
-      // 09:00 UTC = 5:00 AM ET, so the date should still be the same
-      if (orderDate === targetDate) {
-        allTodayOrders.push(order);
+      const res = await fetch(url, { headers: { Accept: "application/json" } });
+      if (!res.ok) {
+        console.error(`Booqable API error (status=${status}, page=${page}):`, res.status);
+        break;
       }
 
-      // Optimization: if we've gone past today's date, we can stop
-      // Orders are roughly chronological, so if order dates are
-      // far past today we don't need to keep going.
-      // But orders may not be perfectly sorted, so we check all pages.
+      const data = await res.json();
+      const orders = data.orders || [];
+      const totalCount = data.meta?.total_count || 0;
+      totalPages = Math.ceil(totalCount / perPage);
+
+      for (const order of orders) {
+        // Check if this order starts today
+        const startsAt = order.starts_at || "";
+        const orderDate = startsAt.substring(0, 10);
+
+        if (orderDate === targetDate && !seenIds.has(order.id)) {
+          seenIds.add(order.id);
+          allTodayOrders.push(order);
+        }
+      }
+
+      page++;
+
+      // Safety limit — don't paginate forever
+      if (page > 100) {
+        console.warn(`Hit 100-page safety limit for status=${status}`);
+        break;
+      }
     }
 
-    page++;
-
-    // Safety limit — don't paginate forever
-    if (page > 100) {
-      console.warn("Hit 100-page safety limit");
-      break;
-    }
+    console.log(`  Found ${allTodayOrders.length} total orders so far after status=${status}`);
   }
 
   return allTodayOrders;
