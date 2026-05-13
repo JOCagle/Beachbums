@@ -56,6 +56,10 @@
     {
       "source": "/order-confirm",
       "destination": "/order-confirm.html"
+    },
+    {
+      "source": "/isle-of-palms-beach-chair-rentals-pricing-setup",
+      "destination": "/isle-of-palms-beach-chair-rentals-pricing-setup.html"
     }
   ]
 }
