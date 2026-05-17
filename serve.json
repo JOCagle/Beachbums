@@ -60,6 +60,14 @@
     {
       "source": "/isle-of-palms-beach-chair-rentals-pricing-setup",
       "destination": "/isle-of-palms-beach-chair-rentals-pricing-setup.html"
+    },
+    {
+      "source": "/isle-of-palms-beach-access-points-guide",
+      "destination": "/isle-of-palms-beach-access-points-guide.html"
+    },
+    {
+      "source": "/best-restaurants-bars-isle-of-palms",
+      "destination": "/best-restaurants-bars-isle-of-palms.html"
     }
   ]
 }
