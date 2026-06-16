@@ -98,18 +98,46 @@ function getAccessPointSortIndex(accessPoint) {
 }
 
 // ──────────────────────────────────────────────
-// Vercel Serverless Function — triggered by cron-job.org at 3 AM EST (08:00 UTC) daily
+// Vercel Serverless Function — triggered by cron-job.org daily
+// Expected cron time: 3:00 AM Eastern (07:00 UTC summer / 08:00 UTC winter)
+// The sync-booqable-orders job runs at 2:45 AM ET to populate Supabase first.
 // ──────────────────────────────────────────────
 module.exports = async function handler(req, res) {
-  console.log("print-daily-orders triggered", new Date().toISOString());
+  const nowUTC = new Date();
+  const etString = nowUTC.toLocaleString("en-US", { timeZone: "America/New_York" });
+  const etDate = new Date(etString);
+  const etHour = etDate.getHours();
+  const etMinute = etDate.getMinutes();
 
+  console.log("═══════════════════════════════════════════");
+  console.log("print-daily-orders TRIGGERED");
+  console.log(`  UTC time : ${nowUTC.toISOString()}`);
+  console.log(`  ET time  : ${etString} (hour=${etHour})`);
+  console.log("═══════════════════════════════════════════");
+
+  // ── Auth check ──
   const cronSecret = process.env.CRON_SECRET;
   if (
     cronSecret &&
     req.headers["authorization"] !== `Bearer ${cronSecret}` &&
     req.query.secret !== cronSecret
   ) {
+    console.log("REJECTED: Unauthorized request");
     return res.status(401).json({ error: "Unauthorized" });
+  }
+
+  // ── Time-of-day guard ──
+  // Only allow printing between 2 AM and 7 AM Eastern to prevent afternoon reprints.
+  // Pass ?force=true to override (for manual testing / emergencies).
+  const forceOverride = req.query.force === "true";
+  if (!forceOverride && (etHour < 2 || etHour >= 7)) {
+    console.log(`BLOCKED: Outside print window (ET hour = ${etHour}). Use ?force=true to override.`);
+    return res.status(200).json({
+      message: "Outside print window (2 AM – 7 AM ET). No action taken.",
+      etTime: etString,
+      etHour,
+      hint: "Add ?force=true to override this guard."
+    });
   }
 
   const supabaseUrl = process.env.SUPABASE_URL;
@@ -132,34 +160,21 @@ module.exports = async function handler(req, res) {
   const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" });
   console.log("Looking for orders with delivery_date =", today);
 
-  // Query all active orders spanning today's date
-  const { data: candidateOrders, error } = await supabase
-    .from("orders")
-    .select("*")
-    .lte("delivery_date", today)
-    .or(`end_date.gte.${today},end_date.is.null`);
+  // ── Query & filter orders ──
+  let orders = await queryAndFilterOrders(supabase, today);
 
-  if (error) return res.status(500).json({ error: error.message });
-
-  let orders = (candidateOrders || []).filter(o => {
-    // If it already printed today, do not print again
-    if (o.last_printed_date === today) return false;
-    
-    if (!o.end_date) return o.delivery_date === today;
-    return true;
-  });
-
-  // Deduplicate: If multiple rows have the same order_id, only keep one
-  const uniqueOrdersMap = new Map();
-  orders.forEach(order => {
-    const key = order.order_id || order.id;
-    uniqueOrdersMap.set(key, order);
-  });
-  orders = Array.from(uniqueOrdersMap.values());
-
-  if (!orders || orders.length === 0) {
-    console.log("No orders to print today.");
-    return res.status(200).json({ message: "No orders to print.", count: 0 });
+  // ── Retry once if 0 orders found ──
+  // The sync-booqable-orders job runs at 2:45 AM. If it hasn't finished
+  // populating Supabase by the time this fires, we wait and try again.
+  if (orders.length === 0) {
+    console.log("0 orders found on first attempt. Waiting 90 seconds for sync to finish...");
+    await sleep(90000);
+    orders = await queryAndFilterOrders(supabase, today);
+    if (orders.length === 0) {
+      console.log("Still 0 orders after retry. Nothing to print.");
+      return res.status(200).json({ message: "No orders to print.", count: 0, retried: true });
+    }
+    console.log(`Retry found ${orders.length} order(s).`);
   }
 
   console.log(`Found ${orders.length} order(s) to print.`);
@@ -222,6 +237,49 @@ module.exports = async function handler(req, res) {
 
   return res.status(200).json({ printed: printedCount, total: orders.length });
 };
+
+// ──────────────────────────────────────────────
+// Query Supabase for today's printable orders
+// ──────────────────────────────────────────────
+async function queryAndFilterOrders(supabase, today) {
+  const { data: candidateOrders, error } = await supabase
+    .from("orders")
+    .select("*")
+    .lte("delivery_date", today)
+    .or(`end_date.gte.${today},end_date.is.null`);
+
+  if (error) {
+    console.error("Supabase query error:", error.message);
+    return [];
+  }
+
+  console.log(`  Supabase returned ${(candidateOrders || []).length} candidate order(s)`);
+
+  let orders = (candidateOrders || []).filter(o => {
+    // If it already printed today, do not print again
+    if (o.last_printed_date === today) return false;
+
+    if (!o.end_date) return o.delivery_date === today;
+    return true;
+  });
+
+  console.log(`  After filtering: ${orders.length} order(s) qualify`);
+
+  // Deduplicate: If multiple rows have the same order_id, only keep one
+  const uniqueOrdersMap = new Map();
+  orders.forEach(order => {
+    const key = order.order_id || order.id;
+    uniqueOrdersMap.set(key, order);
+  });
+  orders = Array.from(uniqueOrdersMap.values());
+
+  console.log(`  After dedup: ${orders.length} unique order(s)`);
+  return orders;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // ──────────────────────────────────────────────
 // Parse Dynamic Array Packages into Raw Totals
