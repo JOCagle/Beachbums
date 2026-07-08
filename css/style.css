@@ -363,6 +363,11 @@ textarea {
   border-bottom: 0
 }
 
+.cta-band {
+  text-align: center;
+  margin: 0 auto;
+}
+
 .footer {
   padding: 28px 0;
   border-top: 1px solid rgba(255, 255, 255, .08);
@@ -371,11 +376,20 @@ textarea {
 }
 
 .footer a {
-  opacity: .9
+  opacity: .9;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
 }
 
 .footer a:hover {
-  opacity: 1
+  opacity: 1;
 }
 
 /* ORDER PAGE */
