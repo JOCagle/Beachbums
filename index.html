@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Beach Bums | Isle of Palms Rentals</title>
   <meta name="description"
-    content="Beach Bums. Easy beach rentals delivered to Isle of Palms. Pick your gear, select your dates, see your price, and check out. Umbrellas include a table.">
+    content="Beach chairs from $15/day, umbrellas $30/day — delivered and set up by 9:30 AM on Isle of Palms, SC. Book online in 2 minutes or call 843-754-0102 for same-day availability.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
   <meta property="og:site_name" content="Beach Bums IOP">
   <meta property="og:title" content="Beach Bums | Isle of Palms Rentals">
   <meta property="og:description"
-    content="Beach Bums. Easy beach rentals delivered to Isle of Palms. Pick your gear, select your dates, see your price, and check out. Umbrellas include a table.">
+    content="Beach chairs from $15/day, umbrellas $30/day — delivered and set up by 9:30 AM on Isle of Palms, SC. Book online in 2 minutes or call 843-754-0102 for same-day availability.">
   <meta property="og:image" content="https://beachbumsiop.com/assets/og-share.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,7 +32,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Beach Bums | Isle of Palms Rentals">
   <meta name="twitter:description"
-    content="Beach Bums. Easy beach rentals delivered to Isle of Palms. Pick your gear, select your dates, see your price, and check out. Umbrellas include a table.">
+    content="Beach chairs from $15/day, umbrellas $30/day — delivered and set up by 9:30 AM on Isle of Palms, SC. Book online in 2 minutes or call 843-754-0102 for same-day availability.">
   <meta name="twitter:image" content="https://beachbumsiop.com/assets/og-share.png">
 
   <script type="application/ld+json">
@@ -46,44 +46,75 @@
   </script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Beach Bums IOP",
-    "description": "Beach Bums. Easy beach rentals delivered to Isle of Palms. Pick your gear, select your dates, see your price, and check out. Umbrellas include a table.",
-    "telephone": "+18437540102",
-    "areaServed": "Isle of Palms, SC",
-    "url": "https://beachbumsiop.com/",
-    "logo": "https://beachbumsiop.com/assets/logo.webp",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Isle of Palms",
-      "addressRegion": "SC",
-      "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://beachbumsiop.com/#localbusiness",
+      "name": "Beach Bums IOP",
+      "image": "https://beachbumsiop.com/assets/images/logo.png",
+      "url": "https://beachbumsiop.com/",
+      "telephone": "+1-843-754-0102", 
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Isle of Palms",
+        "addressRegion": "SC",
+        "postalCode": "29451",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.7849,
+        "longitude": -79.7856
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Isle of Palms"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Wild Dunes"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/people/Beach-Bums/61557737754136/#",
+        "https://www.instagram.com/BeachBumsIOP"
+      ]
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 32.7871,
-      "longitude": -79.7844
-    },
-    "priceRange": "$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "07:00",
-      "closes": "19:00"
-    },
-    "sameAs": [
-      "https://www.facebook.com/beachbumsiop",
-      "https://www.instagram.com/beachbumsiop/"
-    ]
-  }
-  </script>
-<link rel="stylesheet" href="assets/mobile-nav-final-clean-v2.css">
-<link rel="stylesheet" href="assets/premium-coastal-motion-bg.css">
-<link rel="stylesheet" href="assets/oceanfront-modal-position-fix.css">
-<link rel="stylesheet" href="assets/nav-clean-footer-fix.css">
-<link rel="stylesheet" href="assets/home-mobile-video-bigger.css">
+    {
+      "@type": "Product",
+      "@id": "https://beachbumsiop.com/#product",
+      "name": "Isle of Palms Beach Chair & Umbrella Rentals",
+      "image": "https://beachbumsiop.com/assets/images/beach-chair-rental.jpg",
+      "description": "Premium commercial-grade beach chair and umbrella rental services with seamless delivery and setup across Isle of Palms, SC.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Beach Bums IOP"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "15.00",
+        "highPrice": "150.00",
+        "offerCount": "5",
+        "url": "https://beachbumsiop.com/",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://beachbumsiop.com/#localbusiness"
+        }
+      }
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="assets/mobile-nav-final-clean-v2.css">
+  <link rel="stylesheet" href="assets/premium-coastal-motion-bg.css">
+  <link rel="stylesheet" href="assets/oceanfront-modal-position-fix.css">
+  <link rel="stylesheet" href="assets/nav-clean-footer-fix.css">
+  <link rel="stylesheet" href="assets/home-mobile-video-bigger.css">
 </head>
 
 <body>
@@ -157,18 +188,21 @@
     <div class="container">
       <div class="section-head">
         <h2>Why people book with Beach Bums</h2>
-        <p class="muted">Built for vacationers who want a smoother, faster way to get beach chairs and umbrellas without guessing where to go.</p>
+        <p class="muted">Built for vacationers who want a smoother, faster way to get beach chairs and umbrellas without
+          guessing where to go.</p>
       </div>
       <div class="grid">
         <div class="card feature-card" style="grid-column: span 4;">
           <div class="feature-icon">🚚</div>
           <h3>Delivered and set up</h3>
-          <p class="muted">Skip hauling gear. We handle delivery, setup, and pickup so you can head straight to the beach.</p>
+          <p class="muted">Skip hauling gear. We handle delivery, setup, and pickup so you can head straight to the
+            beach.</p>
         </div>
         <div class="card feature-card" style="grid-column: span 4;">
           <div class="feature-icon">🗺️</div>
           <h3>Easy location flow</h3>
-          <p class="muted">Choose the right access point for a day trip, house stay, condo, hotel, or villa in just a few taps.</p>
+          <p class="muted">Choose the right access point for a day trip, house stay, condo, hotel, or villa in just a
+            few taps.</p>
         </div>
         <div class="card feature-card" style="grid-column: span 4;">
           <div class="feature-icon">⚡</div>
@@ -213,12 +247,25 @@
 
       <div class="card" style="grid-column: span 5;">
         <h3>Popular pricing</h3>
-        <div class="kv"><div>Chair</div><div class="muted">$15 / day</div></div>
-        <div class="kv"><div>Umbrella</div><div class="muted">$30 / day</div></div>
-        <div class="kv"><div>Cooler</div><div class="muted">$50 / day</div></div>
+        <div class="kv">
+          <div>Chair</div>
+          <div class="muted">$15 / day</div>
+        </div>
+        <div class="kv">
+          <div>Umbrella</div>
+          <div class="muted">$30 / day</div>
+        </div>
+        <div class="kv">
+          <div>Cooler</div>
+          <div class="muted">$50 / day</div>
+        </div>
         <div class="hr"></div>
-        <div class="kv"><div><b>Bundle</b> (2 chairs + 1 umbrella)</div><div class="muted"><b>$48 / day</b></div></div>
+        <div class="kv">
+          <div><b>Bundle</b> (2 chairs + 1 umbrella)</div>
+          <div class="muted"><b>$48 / day</b></div>
+        </div>
         <p class="muted" style="margin-top:14px;">Need something today? Call or text for same-day availability.</p>
+        <p class="muted" style="margin-top:8px;">See our full <a href="pricing.html">beach chair rental pricing and setup options</a> to compare packages and lock in your gear.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;">
           <a class="btn ghost" href="tel:8437540102">843-754-0102</a>
           <a class="btn primary" href="order-stay.html">Start an Order</a>
@@ -231,7 +278,8 @@
     <div class="container">
       <div class="section-head">
         <h2>Designed for smooth beach days</h2>
-        <p class="muted">Everything is built to reduce confusion and make pickup spots, pricing, and timing easy to understand.</p>
+        <p class="muted">Everything is built to reduce confusion and make pickup spots, pricing, and timing easy to
+          understand.</p>
       </div>
       <div class="metric-row">
         <div class="metric"><strong>2 min</strong><span class="muted">to start an order</span></div>
@@ -245,12 +293,14 @@
     <div class="container">
       <div class="grid" style="align-items:stretch;">
         <div class="card" style="grid-column: span 6; padding:0; overflow:hidden;">
-          <img src="assets/beach-setup.webp" alt="Beach Bums beach setup" style="width:100%; height:100%; min-height:340px; object-fit:cover; display:block;">
+          <img src="assets/beach-setup.webp" alt="Beach Bums beach setup"
+            style="width:100%; height:100%; min-height:340px; object-fit:cover; display:block;">
         </div>
         <div class="card" style="grid-column: span 6;">
           <h2 style="margin-top:0;">What to expect</h2>
           <ul class="checklist">
-            <li>Choose your <a href="isle-of-palms-beach-access-points-guide.html">beach access point</a> during booking so your setup lands in the right place.</li>
+            <li>Choose your <a href="isle-of-palms-beach-access-points-guide.html">beach access point</a> during booking
+              so your setup lands in the right place.</li>
             <li>Umbrellas include a table automatically.</li>
             <li>For oceanfront homes, setup can be placed in front of your private boardwalk when available.</li>
             <li>For late or same-day rentals, calling or texting is the fastest route.</li>
@@ -270,7 +320,8 @@
       <div class="cta-band">
         <div class="page-kicker" style="margin-bottom:12px;">What’s up beach</div>
         <h2 style="margin-top:0;">Ready to book your setup?</h2>
-        <p class="muted" style="max-width:700px; margin:0 auto 18px;">Start online for the smoothest checkout, or call if you need a last-minute rental today.</p>
+        <p class="muted" style="max-width:700px; margin:0 auto 18px;">Start online for the smoothest checkout, or call
+          if you need a last-minute rental today.</p>
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a class="btn primary" href="order-stay.html">Reserve Now</a>
           <a class="btn ghost" href="tel:8437540102">Call / Text 843-754-0102</a>
@@ -280,7 +331,8 @@
   </section>
 
   <footer class="footer">
-    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;">
+    <div class="container"
+      style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;">
       <div>© <span id="y"></span> Beach Bums</div>
       <div class="footer-links">
         <a href="index.html">Home</a>
@@ -295,11 +347,12 @@
   </footer>
   <script src="js/app.js"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-<script src="assets/mobile-nav-final-clean-v2.js" defer></script>
-<script src="assets/premium-coastal-motion-bg.js" defer></script>
-<script src="assets/closest-access-except-boardwalk.js"></script>
-<script src="assets/1400-ocean-and-oceanfront-modal-fix.js"></script>
-<script src="assets/1400-ocean-100ft-seacabinsA-fix.js"></script>
-<script src="keep-shopping-fix.js"></script>
+  <script src="assets/mobile-nav-final-clean-v2.js" defer></script>
+  <script src="assets/premium-coastal-motion-bg.js" defer></script>
+  <script src="assets/closest-access-except-boardwalk.js"></script>
+  <script src="assets/1400-ocean-and-oceanfront-modal-fix.js"></script>
+  <script src="assets/1400-ocean-100ft-seacabinsA-fix.js"></script>
+  <script src="keep-shopping-fix.js"></script>
 </body>
+
 </html>
