@@ -80,6 +80,20 @@
       object-fit: cover;
       filter: saturate(1.15) contrast(1.05);
     }
+    .vs-hero .vs-vimeo-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    /* Desktop: show self-hosted video, hide Vimeo */
+    .vs-mobile-only { display: none; }
+    .vs-desktop-only { display: block; }
+    @media (max-width: 768px) {
+      .vs-mobile-only { display: block; }
+      .vs-desktop-only { display: none; }
+    }
     .vs-hero::after {
       content: "";
       position: absolute;
@@ -301,9 +315,12 @@
        HERO — Video background with overlay
   ═══════════════════════════════════════════════════════════════ -->
   <section class="vs-hero" id="video-shoots-hero">
-    <video autoplay muted loop playsinline class="vs-responsive-video" data-src-desktop="assets/beach-video-shoots.mp4">
+    <!-- Desktop: self-hosted MP4 -->
+    <video autoplay muted loop playsinline class="vs-responsive-video vs-desktop-only" data-src-desktop="assets/beach-video-shoots.mp4">
       <source src="assets/beach-video-shoots-mobile.mp4" type="video/mp4">
     </video>
+    <!-- Mobile: Vimeo (iOS Safari compatible) -->
+    <iframe class="vs-vimeo-bg vs-mobile-only" src="https://player.vimeo.com/video/1215944181?background=1&autoplay=1&loop=1&muted=1&badge=0&autopause=0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
     <div class="vs-hero-content">
       <div class="page-kicker">🎬 Cinematic beach videography</div>
       <h1>Capture Your Beach Memories in a Cinematic Film</h1>
@@ -373,10 +390,15 @@
         <p class="muted">A sample of the cinematic beach films shot right here on Isle of Palms.</p>
       </div>
       <div class="vs-reel">
-        <video controls playsinline preload="metadata" class="vs-responsive-video" data-src-desktop="assets/beach-video-shoots.mp4">
+        <!-- Desktop: self-hosted MP4 -->
+        <video controls playsinline preload="metadata" class="vs-responsive-video vs-desktop-only"  data-src-desktop="assets/beach-video-shoots.mp4">
           <source src="assets/beach-video-shoots-mobile.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <!-- Mobile: Vimeo -->
+        <div class="vs-mobile-only" style="padding:56.25% 0 0 0; position:relative;">
+          <iframe src="https://player.vimeo.com/video/1215944181?badge=0&autopause=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:var(--radius);" loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </section>
