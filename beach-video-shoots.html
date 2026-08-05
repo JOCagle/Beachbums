@@ -301,7 +301,8 @@
        HERO — Video background with overlay
   ═══════════════════════════════════════════════════════════════ -->
   <section class="vs-hero" id="video-shoots-hero">
-    <video autoplay muted loop playsinline class="vs-responsive-video" data-src-desktop="assets/beach-video-shoots.mp4" data-src-mobile="assets/beach-video-shoots-mobile.mp4">
+    <video autoplay muted loop playsinline class="vs-responsive-video" data-src-desktop="assets/beach-video-shoots.mp4">
+      <source src="assets/beach-video-shoots-mobile.mp4" type="video/mp4">
     </video>
     <div class="vs-hero-content">
       <div class="page-kicker">🎬 Cinematic beach videography</div>
@@ -372,7 +373,8 @@
         <p class="muted">A sample of the cinematic beach films shot right here on Isle of Palms.</p>
       </div>
       <div class="vs-reel">
-        <video controls playsinline preload="metadata" class="vs-responsive-video" data-src-desktop="assets/beach-video-shoots.mp4" data-src-mobile="assets/beach-video-shoots-mobile.mp4">
+        <video controls playsinline preload="metadata" class="vs-responsive-video" data-src-desktop="assets/beach-video-shoots.mp4">
+          <source src="assets/beach-video-shoots-mobile.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -457,19 +459,17 @@
   <script src="assets/1400-ocean-100ft-seacabinsA-fix.js"></script>
   <script src="keep-shopping-fix.js"></script>
   <script>
-  // Serve mobile-optimized video on small screens
+  // Upgrade to 1080p on desktop only
   (function(){
-    var isMobile = window.innerWidth <= 768;
-    document.querySelectorAll('.vs-responsive-video').forEach(function(v){
-      var src = isMobile ? v.dataset.srcMobile : v.dataset.srcDesktop;
-      if(src){
-        var source = document.createElement('source');
-        source.src = src;
-        source.type = 'video/mp4';
-        v.appendChild(source);
-        v.load();
-      }
-    });
+    if(window.innerWidth > 768){
+      document.querySelectorAll('.vs-responsive-video').forEach(function(v){
+        var hd = v.dataset.srcDesktop;
+        if(hd){
+          v.querySelector('source').src = hd;
+          v.load();
+        }
+      });
+    }
   })();
   </script>
 </body>
