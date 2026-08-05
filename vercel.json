@@ -1,5 +1,15 @@
 {
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/assets/(.*)\\.mp4",
+      "headers": [
+        { "key": "Accept-Ranges", "value": "bytes" },
+        { "key": "Content-Type", "value": "video/mp4" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
   "redirects": [
     { "source": "/products/(.*)", "destination": "/pricing", "permanent": true },
     { "source": "/collections/(.*)", "destination": "/pricing", "permanent": true },
