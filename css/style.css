@@ -363,6 +363,84 @@ textarea {
   border-bottom: 0
 }
 
+/* ── Blog CTA Callout Box ─────────────────────────────────── */
+.beach-cta {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,211,122,.06), rgba(94,234,212,.04));
+  border: 1px solid rgba(255,211,122,.18);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 28px 28px 24px;
+  margin: 24px 0;
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+.beach-cta:hover {
+  border-color: rgba(255,211,122,.35);
+  box-shadow: 0 8px 30px rgba(255,211,122,.08);
+}
+.beach-cta .beach-cta-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.beach-cta h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+.beach-cta p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.beach-cta .beach-cta-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* Compact variant for mid-article tips */
+.beach-cta.compact {
+  padding: 20px 22px 18px;
+  margin: 18px 0;
+}
+.beach-cta.compact h3 {
+  font-size: 1.05rem;
+}
+.beach-cta.compact p {
+  font-size: .93rem;
+  margin-bottom: 12px;
+}
+/* Bottom CTA — larger, centered */
+.beach-cta.full {
+  text-align: center;
+  border-left: 1px solid rgba(255,211,122,.18);
+  border-top: 4px solid var(--accent);
+  padding: 36px 32px;
+}
+.beach-cta.full .beach-cta-actions {
+  justify-content: center;
+}
+.beach-cta.full p {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 600px) {
+  .beach-cta {
+    padding: 20px 18px 18px;
+  }
+  .beach-cta.full {
+    padding: 24px 18px;
+  }
+}
+
 .cta-band {
   text-align: center;
   margin: 0 auto;
